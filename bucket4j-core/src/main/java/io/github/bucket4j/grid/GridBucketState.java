@@ -35,7 +35,17 @@ public class GridBucketState implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private BucketConfiguration configuration;
+
     private BucketState state;
+
+    public GridBucketState() {
+
+    }
+
+    public GridBucketState(BucketConfiguration configuration, BucketState state) {
+        this.configuration = configuration;
+        this.state = state;
+    }
 
     public static final SerializationHandle<GridBucketState> SERIALIZATION_HANDLE = new SerializationHandle<GridBucketState>() {
         @Override
@@ -62,11 +72,6 @@ public class GridBucketState implements Serializable {
         }
 
     };
-
-    public GridBucketState(BucketConfiguration configuration, BucketState state) {
-        this.configuration = configuration;
-        this.state = state;
-    }
 
     public GridBucketState deepCopy() {
         return new GridBucketState(configuration, state.copy());
@@ -109,8 +114,16 @@ public class GridBucketState implements Serializable {
         return configuration;
     }
 
+    public void setConfiguration(BucketConfiguration value) {
+        this.configuration = value;
+    }
+
     public BucketState getState() {
         return state;
+    }
+
+    public void setState(BucketState value) {
+        this.state = value;
     }
     
     @Override

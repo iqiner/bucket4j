@@ -34,7 +34,11 @@ public final class BucketConfiguration implements Serializable {
 
     private static final long serialVersionUID = 42L;
 
-    private final Bandwidth[] bandwidths;
+    private Bandwidth[] bandwidths;
+
+    public BucketConfiguration() {
+
+    }
 
     public BucketConfiguration(List<Bandwidth> bandwidths) {
         Objects.requireNonNull(bandwidths);
@@ -59,6 +63,10 @@ public final class BucketConfiguration implements Serializable {
 
     public Bandwidth[] getBandwidths() {
         return bandwidths;
+    }
+
+    public void setBandwidths(Bandwidth[] value) {
+        this.bandwidths = value;
     }
 
     @Override

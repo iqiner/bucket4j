@@ -68,16 +68,20 @@ public class Bandwidth implements Serializable {
 
     public static final String UNDEFINED_ID = null;
 
-    final long capacity;
-    final long initialTokens;
-    final long refillPeriodNanos;
-    final long refillTokens;
-    final boolean refillIntervally;
-    final long timeOfFirstRefillMillis;
-    final boolean useAdaptiveInitialTokens;
-    final String id;
+    public long capacity;
+    public long initialTokens;
+    public long refillPeriodNanos;
+    public long refillTokens;
+    public boolean refillIntervally;
+    public long timeOfFirstRefillMillis;
+    public boolean useAdaptiveInitialTokens;
+    public String id;
 
-    private Bandwidth(long capacity, long refillPeriodNanos, long refillTokens, long initialTokens, boolean refillIntervally,
+    public Bandwidth() {
+
+    }
+
+    public Bandwidth(long capacity, long refillPeriodNanos, long refillTokens, long initialTokens, boolean refillIntervally,
               long timeOfFirstRefillMillis, boolean useAdaptiveInitialTokens, String id) {
         this.capacity = capacity;
         this.initialTokens = initialTokens;
@@ -161,24 +165,56 @@ public class Bandwidth implements Serializable {
         return capacity;
     }
 
+    public void setCapacity(long value) {
+        this.capacity = value;
+    }
+
     public long getInitialTokens() {
         return initialTokens;
+    }
+
+    public void setInitialTokens(long value) {
+         this.initialTokens = value;
     }
 
     public long getRefillPeriodNanos() {
         return refillPeriodNanos;
     }
 
+    public void setRefillPeriodNanos(long value) {
+        this.refillPeriodNanos = value;
+    }
+
     public long getRefillTokens() {
         return refillTokens;
+    }
+
+    public void setRefillTokens(long value) {
+        this.refillTokens = value;
     }
 
     public boolean isRefillIntervally() {
         return refillIntervally;
     }
 
+    public boolean getRefillIntervally() {
+        return refillIntervally;
+    }
+
+    public void setRefillIntervally(boolean value) {
+        this.refillIntervally = value;
+    }
+
     public boolean isUseAdaptiveInitialTokens() {
         return useAdaptiveInitialTokens;
+    }
+
+    public boolean getUseAdaptiveInitialTokens() {
+        return useAdaptiveInitialTokens;
+    }
+
+    public void setUseAdaptiveInitialTokens(boolean value) {
+        this.useAdaptiveInitialTokens = value;
     }
 
     public static long getSerialVersionUID() {
@@ -189,12 +225,20 @@ public class Bandwidth implements Serializable {
         return timeOfFirstRefillMillis;
     }
 
+    public void setTimeOfFirstRefillMillis(long value) {
+        this.timeOfFirstRefillMillis = value;
+    }
+
     public boolean isGready() {
         return !refillIntervally;
     }
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public static final SerializationHandle<Bandwidth> SERIALIZATION_HANDLE = new SerializationHandle<Bandwidth>() {

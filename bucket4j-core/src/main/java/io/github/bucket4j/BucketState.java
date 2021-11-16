@@ -34,9 +34,13 @@ public class BucketState implements Serializable {
 
     private static final int BANDWIDTH_SIZE = 3;
 
-    final long[] stateData;
+    private long[] stateData;
 
-    BucketState(long[] stateData) {
+    public BucketState() {
+
+    }
+
+    public BucketState(long[] stateData) {
         this.stateData = stateData;
     }
 
@@ -48,6 +52,14 @@ public class BucketState implements Serializable {
             setCurrentSize(i, calculateInitialTokens(bandwidths[i], currentTimeNanos));
             setLastRefillTimeNanos(i, calculateLastRefillTimeNanos(bandwidths[i], currentTimeNanos));
         }
+    }
+
+    public long[] getStateData() {
+        return this.stateData;
+    }
+
+    public void setStateData(long[] value) {
+        this.stateData = value;
     }
 
     public BucketState copy() {
