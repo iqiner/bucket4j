@@ -15,17 +15,6 @@
     <description>bucket4j - is a java implementation of token bucket algorithm for rate limiting</description>
     <url>http://github.com/vladimir-bukhtoyarov/bucket4j</url>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -35,6 +24,7 @@
     </licenses>
 
     <properties>
+        <nexus.release>xy-maven-public</nexus.release>
         <modular-name>parent</modular-name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -54,6 +44,14 @@
         <testcontainers.version>1.15.1</testcontainers.version>
         <lettuce-version>5.0.2.RELEASE</lettuce-version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>${nexus.release}</name>
+            <url>http://maven.tengsaw.cn:9081/repository/${nexus.release}/</url>
+        </repository>
+    </distributionManagement>
 
     <scm>
         <url>http://github.com/vladimir-bukhtoyarov/bucket4j</url>
