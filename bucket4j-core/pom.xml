@@ -13,6 +13,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>bucket4j-core</artifactId>
     <name>bucket4j-core</name>
+    <version>6.4.0-TS</version>
     <description>Bucket4j core library</description>
 
     <properties>
